@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\HRMSoftware.Infrastructure\HRMSoftware.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
