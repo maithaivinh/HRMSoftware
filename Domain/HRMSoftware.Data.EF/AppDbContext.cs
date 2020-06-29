@@ -1,4 +1,5 @@
-﻿using HRMSoftware.Data.Entities;
+﻿using HRMSoftware.Data.Configurations;
+using HRMSoftware.Data.Entities;
 using HRMSoftware.Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,6 +14,12 @@ namespace HRMSoftware.Data.EF
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new Hre_ProfileConfiguration());
+            //base.OnModelCreating(modelBuilder);
         }
         public DbSet<Hre_Profile> Hre_Profiles { set;get; }
         public DbSet<Cat_JobTitle> Cat_JobTitles { set; get; }
